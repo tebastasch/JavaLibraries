@@ -111,41 +111,43 @@ public class IO {
 	}
 	
 	/**
-	 * @override
-	 * Gets a line of input from the user
-	 * @param prompt A string to prompt the user to give input
-	 * @return String The line of input provided be the user
+	 * Alias for the private Input method
+	 * @return String The line of string input from the user
 	 */
-	private static String Input(String prompt){
+	public static String GetString() throws InvalidInputException {
+		String str = Input();
+		if (str.equals("")){
+			throw new InvalidInputException("Did not receive valid input");
+		}
+		else {
+			return str;
+		}
+	}
+	
+	/**
+	 * @override
+	 * Alias for the private Input method
+	 * @param prompt A string to prompt the user to give input
+	 * @return String The line of string input from the user
+	 */
+	public static String GetString(String prompt) throws InvalidInputException {
 		Print(prompt);
-		return Input();
-	}
-	
-	/**
-	 * Alias for the private Input method
-	 * @return String The line of string input from the user
-	 */
-	public static String GetString(){
-		return Input();
-	}
-	
-	/**
-	 * @override
-	 * Alias for the private Input method
-	 * @param prompt A string to prompt the user to give input
-	 * @return String The line of string input from the user
-	 */
-	public static String GetString(String prompt){
-		return Input(prompt);
+		return GetString();
 	}
 	
 	/**
 	 * Get an integer from the user
 	 * @return int The integer given by the user (returns Integer.MIN_VALUE if the input could not be converted to an integer)
 	 */
-	public static int GetInteger() {
+	public static int GetInteger() throws InvalidInputException {
 		String myInput = GetString();
-		return Numbers.toInt(myInput);
+		
+		try {
+			return Numbers.toInt(myInput);
+		}
+		catch (NumberFormatException e){
+			throw new InvalidInputException("Could not parse input as an Integer.");
+		}
 	}
 	
 	/**
@@ -154,16 +156,16 @@ public class IO {
 	 * @param prompt A string to prompt the user to give input
 	 * @return int The integer given by the user (returns Integer.MIN_VALUE if the input could not be converted to an integer)
 	 */
-	public static int GetInteger(String prompt) {
-		String myInput = GetString(prompt);
-		return Numbers.toInt(myInput);
+	public static int GetInteger(String prompt) throws InvalidInputException {
+		IO.Print(prompt);
+		return GetInteger();
 	}
 	
 	/**
 	 * Get an integer from the user
 	 * @return int The integer given by the user (returns Integer.MIN_VALUE if the input could not be converted to an integer)
 	 */
-	public static double GetDouble() {
+	public static double GetDouble() throws InvalidInputException {
 		String myInput = GetString();
 		return Numbers.toDouble(myInput);
 	}
@@ -174,7 +176,7 @@ public class IO {
 	 * @param prompt A string to prompt the user to give input
 	 * @return int The integer given by the user (returns Integer.MIN_VALUE if the input could not be converted to an integer)
 	 */
-	public static double GetDouble(String prompt) {
+	public static double GetDouble(String prompt) throws InvalidInputException {
 		String myInput = GetString(prompt);
 		return Numbers.toDouble(myInput);
 	}
@@ -184,7 +186,7 @@ public class IO {
 	 * @return boolean True or False based on the provided input from the user (If invalid entry, returns false)
 	 */
 	
-	public static boolean GetBoolean(){
+	public static boolean GetBoolean() throws InvalidInputException {
 		String response = GetString().toLowerCase();
 		switch (response) {
 			case "y":
@@ -209,7 +211,7 @@ public class IO {
 	 * @return boolean True or False based on the provided input from the user (If invalid entry, returns false)
 	 */
 	
-	public static boolean GetBoolean(boolean bool){
+	public static boolean GetBoolean(boolean bool) throws InvalidInputException {
 		String response = GetString().toLowerCase();
 		if (bool) {
 			switch (response) {
@@ -244,7 +246,7 @@ public class IO {
 	 * @return boolean True or False based on the provided input from the user
 	 */
 	
-	public static boolean GetBoolean(String prompt){
+	public static boolean GetBoolean(String prompt) throws InvalidInputException {
 		Print(prompt);
 		return GetBoolean();
 	}
@@ -257,12 +259,12 @@ public class IO {
 	 * @return boolean True or False based on the provided input from the user
 	 */
 	
-	public static boolean GetBoolean(String prompt, boolean bool){
+	public static boolean GetBoolean(String prompt, boolean bool) throws InvalidInputException {
 		Print(prompt);
 		return GetBoolean(bool);
 	}
 	
-	public static boolean GetBoolean(String t, String f){
+	public static boolean GetBoolean(String t, String f) throws InvalidInputException {
 		String response = GetString().toLowerCase();
 		t = t.toLowerCase();
 		f = f.toLowerCase();
@@ -281,12 +283,12 @@ public class IO {
 		}
 	}
 	
-	public static boolean GetBoolean(String prompt, String t, String f){
+	public static boolean GetBoolean(String prompt, String t, String f) throws InvalidInputException {
 		Print(prompt);
 		return GetBoolean(t, f);
 	}
 	
-	public static double[] GetDoubleArray(){
+	public static double[] GetDoubleArray() throws InvalidInputException {
 		String input = GetString();
 		String[] inputArr = input.split(",");
 		double[] dblArr = new double[inputArr.length];
@@ -304,7 +306,7 @@ public class IO {
 		return dblArr;
 	}
 	
-	public static double[] GetDoubleArray(String prompt){
+	public static double[] GetDoubleArray(String prompt) throws InvalidInputException {
 		Print(prompt);
 		return GetDoubleArray();
 	}
@@ -332,15 +334,11 @@ public class IO {
 	}
 	
 	public static void main(String[] args) {
-		
-		/*Print(GetString("What is your name?"));
-		Print(GetString("What is your quest?"));
-		Print(GetString("What is your favorite color?"));*/
-		if (GetBoolean("Sure", "Nah")){
-			Print("true");
+		try{
+			Print(GetInteger("Number"));
 		}
-		else {
-			Print("false");
+		catch (InvalidInputException e){
+			Print("Exception");
 		}
 	}
 }
