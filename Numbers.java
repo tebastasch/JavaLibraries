@@ -18,7 +18,7 @@ public class Numbers {
 			return myInt;
 		}
 		catch (NumberFormatException e) {
-			IO.Print("Error: Could not parse string as an Integer");
+			Out.Print("Error: Could not parse string as an Integer");
 		}
 		return Integer.MIN_VALUE;
 	}
@@ -34,7 +34,7 @@ public class Numbers {
 			return myInt;
 		}
 		catch (NumberFormatException e) {
-			IO.Print("Error: Could not parse double as an Integer");
+			Out.Print("Error: Could not parse double as an Integer");
 		}
 		return Integer.MIN_VALUE;
 	}
@@ -45,7 +45,7 @@ public class Numbers {
 			return dbl;
 		}
 		catch (NumberFormatException e) {
-			IO.Print("Error: Could not parse string as a Double");
+			Out.Print("Error: Could not parse string as a Double");
 		}
 		return Double.NEGATIVE_INFINITY;
 	}
