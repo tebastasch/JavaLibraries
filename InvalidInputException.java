@@ -1,6 +1,8 @@
 package libs;
 
 public class InvalidInputException extends Exception {
+	
+	private static final long serialVersionUID = -3204169490147481287L;
 
 	public InvalidInputException() {
 		// TODO Auto-generated constructor stub

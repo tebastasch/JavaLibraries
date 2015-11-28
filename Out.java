@@ -21,7 +21,7 @@ public class Out {
 	
 	/**
 	 * Prints an Integer to the console
-	 * @param str The string to print to the console
+	 * @param myInt The integer to print to the console
 	 */
 	public static void Print(int myInt){
 		System.out.println(myInt);
@@ -29,7 +29,7 @@ public class Out {
 	
 	/**
 	 * Prints a Double to the console
-	 * @param dbl The string to print to the console
+	 * @param dbl The double to print to the console
 	 */
 	public static void Print(double dbl){
 		System.out.println(dbl);
@@ -44,11 +44,11 @@ public class Out {
 	}
 	
 	/**
-	 * @override
 	 * Prints multiple strings to the console on separate lines
 	 * @param strArr An array of strings to each be printed on new lines
 	 */
 	public static void Print(String[] strArr){
+
 		for (int i = 0; i < strArr.length; i++) {
 			Print(strArr[i]);
 		}
@@ -67,7 +67,6 @@ public class Out {
 	}
 	
 	/**
-	 * @override
 	 * Prints multiple integers to the console on separate lines
 	 * @param intArr An array of integers to each be printed on new lines
 	 */
@@ -78,7 +77,6 @@ public class Out {
 	}
 	
 	/**
-	 * @override
 	 * Prints multiple doubles to the console on separate lines
 	 * @param dblArr An array of doubles to each be printed on new lines
 	 */
@@ -89,7 +87,6 @@ public class Out {
 	}
 	
 	/**
-	 * @override
 	 * Prints multiple booleans to the console on separate lines
 	 * @param boolArr The boolean to print
 	 */

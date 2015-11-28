@@ -1,7 +1,7 @@
 package libs;
 
 public class Console {
-	public final static void clearConsole()
+	public static void clearConsole()
 	{
 	    /*try
 	    {
