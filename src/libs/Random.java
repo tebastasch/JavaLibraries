@@ -1,4 +1,4 @@
-package com.shadow53.libs;
+package libs;
 
 public class Random {
 	public static int Int(int top){

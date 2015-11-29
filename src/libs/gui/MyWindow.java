@@ -1,4 +1,4 @@
-package com.shadow53.libs.gui;
+package libs.gui;
 
 import javax.swing.JFrame;
 

@@ -1,4 +1,4 @@
-package com.shadow53.libs;
+package libs;
 
 public class Console {
 	public static void clearConsole()

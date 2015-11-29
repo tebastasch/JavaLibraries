@@ -1,4 +1,4 @@
-package com.shadow53.libs;
+package libs;
 
 import java.util.Scanner;
 
@@ -78,29 +78,24 @@ public class In {
 		}
 	}
 	
-	public static char GetChar() throws InvalidInputException{
-		String input = GetString();
-		if (input.length() > 1){
-			throw new InvalidInputException("Your input should only be one character long");
-		}
-		return input.charAt(0);
-	}
-	
-	public static char GetChar(String prompt) throws InvalidInputException{
-		Out.Print(prompt);
-		return GetChar();
-	}
-	
-	public static char GetChar(String prompt, String error){
-		while (true){
+	/**
+	 * Get a string of input from the user. Give maxTries number of chances to provide valid input before returning an empty string (an empty string is considered invalid input)
+	 * @param prompt A string to prompt the user to give input
+	 * @param error A string to display on bad input (nothing typed)
+	 * @param maxTries The maximum amount of times that the user can an try to give valid input
+	 * @return String The line of input from the user
+	 */
+	public static String GetString(String prompt, String error, int maxTries){
+		for (int i = 0; i < maxTries; i++) {
 			try {
-				return GetChar(prompt);
+				return GetString(prompt);
 			}
 			catch (InvalidInputException e){
 				Out.Print(error);
 				Out.NewLine();
 			}
 		}
+		return "";
 	}
 	
 	/**

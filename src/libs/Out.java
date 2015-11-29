@@ -1,4 +1,4 @@
-package com.shadow53.libs;
+package libs;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -17,15 +17,6 @@ public class Out {
 	 */
 	public static void Print(String str){
 		System.out.println(str);
-	}
-	
-	/**
-	 * Prints a Character to the console
-	 * @param c The char to print to the console
-	 */
-	
-	public static void Print(char c){
-		Print(Character.toString(c));
 	}
 	
 	/**

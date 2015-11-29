@@ -1,4 +1,4 @@
-package com.shadow53.libs.gui;
+package libs.gui;
 
 public interface MyButton {
 

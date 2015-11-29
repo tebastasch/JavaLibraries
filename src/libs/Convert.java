@@ -1,4 +1,4 @@
-package com.shadow53.libs;
+package libs;
 
 public class Convert {	
 	public static double FahrenheitToCelsius(double fahr){

@@ -1,4 +1,4 @@
-package com.shadow53.libs;
+package libs;
 
 import java.io.File;
 import java.io.IOException;
