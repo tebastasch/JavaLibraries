@@ -9,8 +9,12 @@ public class Convert {
 		return cels * (9/5.0) + 32;
 	}
 	
-	public static int decimalToBase(int num, int base)
-	{
+	/**@param "num" number to convert
+	 * @param "base" base to convert to
+	 * @return "num" in base "base"
+	 */
+
+	public static int decimalToBase(int num, int base){
 		if (base == 10)
 		{
 			return num;
@@ -23,7 +27,21 @@ public class Convert {
 			tmp += rem;
 			num /= base;
 		}
-		// TODO: Reverse the string
+		tmp = reverseStr(tmp);
 		return (tmp.equals("") ? 0 : Integer.parseInt(tmp));
 	}
+	
+	/**@param str String to be reversed
+	 * @return reversed String
+	 */
+
+	public static String reverseStr(String str){
+		char [] tmp = str.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < tmp.length; i++) {
+			sb.append(tmp[tmp.length - 1 - i]);
+		}
+		return sb.toString();
+	}
+	
 }
